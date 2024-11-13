@@ -3,6 +3,7 @@ import { User } from '../database/entity/User';
 import { UserRepository } from '../repositories/user-repository';
 import { UserType } from '../utils/zod-schemas';
 import { AppDataSource } from '../database/db';
+import { ResourceNotFoundError } from '../errors/ApiError';
 
 export class UserProvider implements UserRepository {
   private userRepository: Repository<User>;
@@ -23,5 +24,9 @@ export class UserProvider implements UserRepository {
 
   async findByEmail(email: string): Promise<User | null> {
     return this.userRepository.findOne({ where: { email } });
+  }
+
+  async findById(userId: number): Promise<User | null> {
+    return this.userRepository.findOneBy({ id: userId });
   }
 }

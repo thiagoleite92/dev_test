@@ -1,14 +1,14 @@
 import { RequestHandler } from 'express';
 import { z } from 'zod';
-
-const createPostSchema = z.object({
-  title: z.string(),
-  description: z.string(),
-  userId: z.number(),
-});
+import { createPostSchema } from '../utils/zod-schemas';
+import { makeCreatePostService } from '../services/factories/make-create-post-service';
 
 export const createPostController: RequestHandler = async (req, res) => {
   const post = createPostSchema.parse(req.body);
+
+  const postCreateService = makeCreatePostService();
+
+  await postCreateService.execute(post);
 
   return res.send(post);
 };
