@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { healthController } from '../controllers/health';
-import { createUserController } from '../controllers/create-user';
-import { createPostController } from '../controllers/create-post';
+import { healthController } from '../controllers/health-controller';
+import { createUserController } from '../controllers/create-user-controller';
 import { resolver } from '../middleware/resolver';
+import { createPostController } from '../controllers/create-post- controller';
 
 export const router = Router();
 

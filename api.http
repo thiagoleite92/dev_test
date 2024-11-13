@@ -4,9 +4,7 @@
 
 ### Health
 GET {{apiUrl}}/health HTTP/1.1
-
 ### POST USER
-
 POST {{apiUrl}}/users HTTP/1.1
 Content-Type: application/json
 
@@ -15,9 +13,7 @@ Content-Type: application/json
   "lastName": "Doe",
   "email": "john.doe@example.com"
 }
-
 ###
-
 POST {{apiUrl}}/posts HTTP/1.1
 Content-Type: application/json
 

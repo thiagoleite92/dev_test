@@ -1,8 +1,8 @@
 import { DataSource } from 'typeorm';
-import { Post } from '../entity/Post';
-import { User } from '../entity/User';
+import { Post } from './entity/Post';
+import { User } from './entity/User';
 
-const AppDataSource = new DataSource({
+export const AppDataSource = new DataSource({
   type: 'mysql',
   host: process.env.DB_HOST || 'localhost',
   port: 3306,
@@ -13,10 +13,10 @@ const AppDataSource = new DataSource({
   synchronize: true,
 });
 
-const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const initializeDatabase = async () => {
-  await wait(20000);
+  // await wait(20000);
   try {
     await AppDataSource.initialize();
     console.log('Data Source has been initialized!');
