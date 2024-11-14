@@ -1,5 +1,5 @@
 import { ConflictError } from '../errors/ApiError';
-import { UserRepository } from '../repositories/user-repository';
+import { UserRepository } from '../repositories/interfaces/user-interface';
 import { UserType } from '../utils/zod-schemas';
 
 export class CreateUserService {

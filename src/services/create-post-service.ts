@@ -1,6 +1,6 @@
 import { ResourceNotFoundError } from '../errors/ApiError';
-import { PostRepository } from '../repositories/post-repository';
-import { UserRepository } from '../repositories/user-repository';
+import { PostRepository } from '../repositories/interfaces/post-interface';
+import { UserRepository } from '../repositories/interfaces/user-interface';
 import { PostType } from '../utils/zod-schemas';
 
 export class CreatePostService {

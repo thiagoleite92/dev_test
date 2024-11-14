@@ -3,7 +3,6 @@ import express from 'express';
 import { initializeDatabase } from './database/db';
 import { router } from './routes';
 import errorMiddleware from './middleware/error-middleware';
-import { createConnections } from 'typeorm';
 
 const app = express();
 app.use(express.json());

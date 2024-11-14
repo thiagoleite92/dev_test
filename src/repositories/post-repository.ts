@@ -1,10 +1,24 @@
+import { Repository } from 'typeorm';
 import { User } from '../database/entity/User';
-import { PostType } from '../utils/zod-schemas';
+import { PostType, UserType } from '../utils/zod-schemas';
+import { AppDataSource } from '../database/db';
+import { Post } from '../database/entity/Post';
+import { PostInterface } from './interfaces/post-interface';
 
-export interface PostRepository {
-  create(post: PostType, user: User): Promise<void>;
+export class PostRepository implements PostInterface {
+  private postRepository: Repository<Post>;
 
-  // findAll(): Promise<User[]>;
+  constructor() {
+    this.postRepository = AppDataSource.getRepository(Post);
+  }
 
-  // findById(id: number): Promise<User | null>;
+  async create({ description, title }: PostType, user: User) {
+    const newPost = new Post();
+
+    newPost.title = title;
+    newPost.description = description;
+    newPost.user = user;
+
+    await this.postRepository.save(newPost);
+  }
 }

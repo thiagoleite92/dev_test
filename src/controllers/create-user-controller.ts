@@ -2,7 +2,7 @@ import { RequestHandler } from 'express';
 import { z } from 'zod';
 import { createUserSchema } from '../utils/zod-schemas';
 import { CreateUserService } from '../services/create-user-service';
-import { UserProvider } from '../providers/user-provider';
+import { UserProvider } from '../repositories/user-repository';
 import { makeCreateUserService } from '../services/factories/make-create-user-service';
 
 export const createUserController: RequestHandler = async (req, res) => {

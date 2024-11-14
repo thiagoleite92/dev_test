@@ -1,9 +1,9 @@
-import { UserProvider } from '../../providers/user-provider';
+import { UserRepository } from '../../repositories/user-repository';
 import { CreateUserService } from '../create-user-service';
 
 export const makeCreateUserService = () => {
-  const userProvider = new UserProvider();
-  const createUserService = new CreateUserService(userProvider);
+  const userRepository = new UserRepository();
+  const createUserService = new CreateUserService(userRepository);
 
   return createUserService;
 };
