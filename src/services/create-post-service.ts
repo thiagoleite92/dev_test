@@ -1,12 +1,12 @@
 import { ResourceNotFoundError } from '../errors/ApiError';
-import { PostRepository } from '../repositories/interfaces/post-interface';
-import { UserRepository } from '../repositories/interfaces/user-interface';
+import { PostInterface } from '../repositories/interfaces/post-interface';
+import { UserInterface } from '../repositories/interfaces/user-interface';
 import { PostType } from '../utils/zod-schemas';
 
 export class CreatePostService {
   constructor(
-    private readonly postRepository: PostRepository,
-    private readonly userRepository: UserRepository
+    private readonly postRepository: PostInterface,
+    private readonly userRepository: UserInterface
   ) {}
   async execute(post: PostType) {
     const { userId } = post;

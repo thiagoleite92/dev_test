@@ -1,6 +1,5 @@
 import { ConflictError } from '../errors/ApiError';
 import { InMemoryUserRepository } from '../repositories/in-memory/in-memory-user-repository';
-import { UserRepository } from '../repositories/user-repository';
 import { CreateUserService } from './create-user-service';
 
 let userRepository: InMemoryUserRepository;
