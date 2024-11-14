@@ -1,9 +1,10 @@
 import { ConflictError } from '../errors/ApiError';
-import { UserRepository } from '../repositories/interfaces/user-interface';
+import { UserInterface } from '../repositories/interfaces/user-interface';
+import { UserRepository } from '../repositories/user-repository';
 import { UserType } from '../utils/zod-schemas';
 
 export class CreateUserService {
-  constructor(private readonly userRepository: UserRepository) {}
+  constructor(private readonly userRepository: UserInterface) {}
 
   async execute(user: UserType) {
     const existingUser = await this.userRepository.findByEmail(user?.email);

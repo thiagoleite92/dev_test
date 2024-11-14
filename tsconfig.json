@@ -12,6 +12,6 @@
     "skipLibCheck": true,
     "strictPropertyInitialization": false
   },
-  "include": ["src/**/*", "src/db.test.ts"],
+  "include": ["src/**/*", "src/db.spec.ts"],
   "exclude": ["node_modules"]
 }
