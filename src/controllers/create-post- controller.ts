@@ -8,7 +8,7 @@ export const createPostController: RequestHandler = async (req, res) => {
 
   const postCreateService = makeCreatePostService();
 
-  await postCreateService.execute(post);
+  const newPost = await postCreateService.execute(post);
 
-  return res.send(post);
+  return res.status(201).send(newPost);
 };

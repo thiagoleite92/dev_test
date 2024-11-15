@@ -9,12 +9,14 @@ Este teste foi desenvolvido para avaliar suas habilidades práticas em tarefas c
 Dentro do arquivo `init.sql`, crie as seguintes tabelas:
 
 ### Tabela `user`
+
 - **id** – Tipo: `Int`, autoincremental, chave primária (PK).
 - **firstName** – Tipo: `Varchar(100)`, não nulo.
 - **lastName** – Tipo: `Varchar(100)`, não nulo.
 - **email** – Tipo: `Varchar(100)`, não nulo.
 
 ### Tabela `post`
+
 - **id** – Tipo: `Int`, autoincremental, chave primária (PK).
 - **title** – Tipo: `Varchar(100)`, não nulo.
 - **description** – Tipo: `Varchar(100)`, não nulo.
@@ -45,16 +47,19 @@ Configure o `Dockerfile` da aplicação para garantir que ela seja construída c
 Execute os seguintes comandos para testar a aplicação:
 
 1. **Subir a aplicação utilizando Docker Compose**:
+
    ```bash
    docker compose up --build
    docker exec -it <Container Name> /bin/sh
-   
+
    ```
 
    Dentro do container, execute o teste:
+
    ```bash
    npm test
    ```
 
 ## 6º Passo: Crie um fork desse repositório e submita o código preenchido nele.
+
 Crie um Pull Request para a brach master nos enviando o código

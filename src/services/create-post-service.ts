@@ -17,6 +17,6 @@ export class CreatePostService {
       throw new ResourceNotFoundError('User not found');
     }
 
-    await this.postRepository.create(post, user);
+    return await this.postRepository.create(post, user);
   }
 }
