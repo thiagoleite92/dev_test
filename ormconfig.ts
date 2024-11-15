@@ -1,6 +1,8 @@
+import 'dotenv/config';
+
 export default {
   type: 'mysql',
-  host: 'localhost',
+  host: process.env.DB_HOST,
   port: 3306,
   username: 'root',
   password: 'password',

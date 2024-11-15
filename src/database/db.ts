@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { DataSource } from 'typeorm';
 import { Post } from './entity/Post';
 import { User } from './entity/User';

@@ -11,9 +11,11 @@ services:
       - DB_USER=root
       - DB_PASSWORD=password
       - DB_NAME=test_db
-      - DB_PORT=3000
+      - DB_PORT=3306
     depends_on:
       - db
+    networks:
+      - app-network
 
   db:
     image: mysql:8.0
@@ -26,6 +28,12 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
 
 volumes:
   mysql-data:
