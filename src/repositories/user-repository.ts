@@ -11,14 +11,10 @@ export class UserRepository implements UserInterface {
     this.userRepository = AppDataSource.getRepository(User);
   }
 
-  async create({ email, firstName, lastName }: UserType) {
-    const newUser = new User();
+  async create({ email, firstName, lastName }: UserType): Promise<User> {
+    const newUser = this.userRepository.create({ email, firstName, lastName });
 
-    newUser.email = email;
-    newUser.firstName = firstName;
-    newUser.lastName = lastName;
-
-    await this.userRepository.save(newUser);
+    return this.userRepository.save(newUser);
   }
 
   async findByEmail(email: string): Promise<User | null> {

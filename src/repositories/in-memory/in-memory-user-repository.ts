@@ -4,12 +4,12 @@ import { UserInterface } from '../interfaces/user-interface';
 export class InMemoryUserRepository implements UserInterface {
   public items: User[] = [];
   private id: number = 1;
-  async create(user: UserType): Promise<void> {
+  async create(user: UserType): Promise<User> {
     this.items?.push({ ...user, id: this.id, post: [] });
 
     this.id += 1;
 
-    return;
+    return this.items[this.items.length - 1];
   }
   async findByEmail(email: string): Promise<User | null> {
     const findUser = this.items?.find((user) => user.email === email);
